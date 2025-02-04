@@ -1,0 +1,76 @@
+{% extends "base/customer-base.html" %} {% block container %} {% load static %}
+
+
+{% include 'includes/customer-nav.html' %}
+
+    <section class="py-10 px-5 sm:px-10">
+        <h3 class="text-[18px] font-bold mb-5 text-red-600">PENDING ORDERS:</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+            {% for pending in pendings %}
+            <div class="border-2 border-gray-200 shadow-lg p-3 rounded-xl">
+                <h3 class="font-bold text-[18px] mb-4 text-center">BILL</h3>
+                <h3 class="font-bold text-[16px] mb-4">ITEMS:</h3>
+                {% for items in pending.items.all %}
+                    
+                    <div class="flex justify-between items-center text-red-500">
+                        <p class="font-bold text-[14px] mb-2 text-center">{{items.menu.name}}</p>
+                        <p class="font-bold text-[14px] mb-2 text-center">₹ {{items.amount}}</p>
+                    </div>
+                    
+                {% endfor %}
+
+                <div class="text-right text-gray-700 mt-3">
+                    <p class="font-bold text-[14px] mb-4">Sub Total: ₹ {{pending.subtotal}}</p>
+                    <p class="font-bold text-[18px] mb-4">Total: ₹ {{pending.total}}</p>
+                </div>
+
+                <h3 class="font-bold text-[18px] mb-4 text-center">PAY NOW</h3>
+                <div class="text-center">
+                    <a href="{% url 'customer:payment_hand' id=pending.id %}" class="bg-red-500 py-2 px-5 rounded-full text-[12px] text-white">BY CASH</a> <br> <br>
+                    <a href="{% url 'customer:payment_hand' id=pending.id %}" class="bg-red-500 py-2 px-5 rounded-full text-[12px] text-white">BY UPI</a> <br> <br>
+                    <a href="{% url 'customer:payment' id=pending.id %}" class="bg-red-500 py-2 px-5 rounded-full text-[12px] text-white">BY CARD</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="py-10 px-5 sm:px-10">
+        <h3 class="text-[18px] font-bold mb-5 text-red-600">COMPLETED ORDERS:</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+            {% for order in orders %}
+            <div class="border-2 border-gray-200 shadow-lg p-3 rounded-xl">
+                <h3 class="font-bold text-[18px] mb-4 text-center">BILL</h3>
+                <h3 class="font-bold text-[16px] mb-4">ITEMS:</h3>
+                {% for items in order.items.all %}
+                <div class="flex justify-between items-center text-red-500">
+                    <p class="font-bold text-[14px] mb-2 text-center">{{items.menu.name}}</p>
+                    <p class="font-bold text-[14px] mb-2 text-center">₹ {{items.amount}}</p>
+                </div>
+                {% endfor %}
+                <div class="text-right text-gray-700 mt-3">
+                    <p class="font-bold text-[14px] mb-4">Sub Total: ₹ {{order.subtotal}}</p>
+                    <p class="font-bold text-[18px] mb-4">Total: ₹ {{order.total}}</p>
+                </div>
+
+                <h3 class="font-bold text-[18px] mb-4 text-center">FEEDBACK</h3>
+                {% if order.is_feedback %}
+                <div class="text-center">
+                    <a href="{% url 'customer:feedback_view' id=order.id %}" class="bg-red-500 py-2 px-5 rounded-full text-[12px] text-white">READ NOW</a>
+                </div>
+                {% else %}
+                <div class="text-center">
+                    <a href="{% url 'customer:feedback' id=order.id %}" class="bg-red-500 py-2 px-5 rounded-full text-[12px] text-white">WRITE NOW</a>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+        </div>
+    </section>
+
+
+{% include 'includes/customer-foot.html' %}
+
+
+{% endblock %}

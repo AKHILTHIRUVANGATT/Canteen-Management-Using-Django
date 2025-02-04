@@ -1,0 +1,72 @@
+{% extends "base/customer-base.html" %} {% block container %} {% load static %}
+
+
+{% include 'includes/customer-nav.html' %}
+
+    <section id="hero" class="h-[90vh]">
+        <h1 class="pt-[30%] sm:pt-[10%] pl-[10%] text-[40px] sm:text-[56px] font-extrabold text-red-600">FAST FOOD & <br></h1>
+        <h1 class="pl-[10%] text-[40px] sm:text-[56px] font-extrabold">BEST PIZZA<br></h1>
+        <div class="pl-[10%] flex justify-start items-center flex-wrap mt-10">
+            <h3 class="line-through text-[32px] sm:text-[40px] font-extrabold mr-5 text-gray-600">₹ 499</h3>
+            <h3 class="text-[32px] sm:text-[40px] font-extrabold mr-5 text-red-600 w-full sm:w-2/6">₹ 399</h3>
+        </div>
+        <div class="mt-10 pl-[10%]">
+            <a href="#" class="bg-red-600 py-3 px-5 text-[14px] md:text-[16px] font-bold text-white hover:bg-slate-500">ORDER NOW</a>
+        </div>
+    </section>
+
+    <section class="px-5 sm:px-10 py-20 sm:py-30 flex justify-between items-center flex-wrap-reverse bg-gray-100">
+        <div class="w-full sm:w-3/6 p-10">
+            <img src="{% static './web/images/biriyani.png' %}" alt="biriyani" class="shadow-md rounded-2xl">
+            
+        </div>
+        <div class="w-full sm:w-3/6">
+            <p class="text-red-600 text-[14px] ">ABOUT US</p>
+            <h1 class="font-extrabold text-[40px] mb-10">WHY CHOOSE US?</h1>
+            <p class="text-gray-600 text-[16px] mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                 Dicta ea, quis blanditiis quo facilis laborum architecto expedita laudantium fugit voluptatem modi 
+                 autem, quia minima? Tempora, dolor? Distinctio iste laudantium earum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                 Dicta ea, quis blanditiis quo facilis laborum architecto expedita laudantium fugit voluptatem modi 
+                 autem, quia minima? Tempora, dolor? Distinctio iste laudantium earum.
+            </p>
+            <p class="text-gray-600 text-[16px] mb-10">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dicta ea, quis blanditiis quo facilis laborum architecto expedita laudantium fugit voluptatem modi 
+                autem, quia minima? Tempora, dolor? Distinctio iste laudantium earum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dicta ea, quis blanditiis quo facilis laborum architecto expedita laudantium fugit voluptatem modi 
+                autem, quia minima? Tempora, dolor? Distinctio iste laudantium earum.
+           </p>
+           <a href="./about.html" class="bg-red-600 py-3 px-5 text-[14px] md:text-[16px] font-bold text-white hover:bg-slate-500">LEARN MORE</a>
+        </div>
+    </section>
+
+    <section class="px-5 sm:px-10 py-20 sm:py-30">
+        <h3 class="text-center text-red-600 text-[40px] font-bold pb-3">TODAY'S SPECIAL</h3>
+        <div class="w-[120px] m-auto border-b-4 border-gray-500 mb-10 sm:mb-20"></div>
+        <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+            {% for menu in menus %}
+            <li class="shadow-2xl p-3 sm:p-5 rounded-lg">
+                <img src="{{menu.image.url}}" alt="image" class="w-full rounded-md">
+                <h3 class="text-red-500 text-[16px] font-bold my-3 text-center">{{menu.name}}</h3> 
+                {% if user.is_customer %}
+                    <p class="text-gray-500 text-[16px] font-bold my-3 text-center">₹ {{menu.offer_price}}</p>
+                {% else%}
+                    <p class="text-gray-500 text-[16px] font-bold my-3 text-center">₹ {{menu.price}}</p>
+                {% endif %}
+                <div class="text-center">
+                    <a href="#" class="bg-red-600 py-2 px-4 rounded-full text-[10px] font-bold text-white hover:bg-slate-500">ADD TO CART</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="text-center mt-20">
+            <a href="{% url 'customer:menu' %}" class="bg-red-600 py-3 px-5 text-[18px] font-bold text-white hover:bg-slate-500">VIEW ALL MENU</a>
+        </div>
+    </section>
+
+
+    
+    
+    {% include 'includes/customer-foot.html' %}
+
+
+    {% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base/customer-base.html" %} {% block container %} {% load static %}
+
+
+{% include 'includes/customer-nav.html' %}
+
+    <section class="h-[30vh] bg-red-600 text-center text-white">
+        <h1 class="text-[40px] sm:text-[56px] font-extrabold pt-[10vh]">MY CART</h1>
+        <div class="flex justify-center items-center">
+            <img src="{% static './web/images/home.png' %}" alt="icon" class="w-[16px] h-[16px] mr-3">
+            <h3 class="font-bold text[16px] mr-3">HOME</h3>
+            <img src="{% static './web/images/right-arrow.png' %}" alt="icon" class="w-[16px] h-[16px] mr-3">
+            <h3 class="font-bold text[16px] mr-3">MY CART</h3>
+        </div>
+    </section>
+
+    <section class="m-auto w-[90%] sm:w-[80%] md:w-[70%] shadow-2xl border-2 border-gray-200 rounded-2xl p-5">
+        {% for cart in carts %}
+        <div class="bg-gray-100 p-2 rounded-xl grid grid-cols-4 gap-5 mb-5">
+            <div class="col-span-2 sm:col-span-1">
+                <img src="{{cart.menu.image.url}}" alt="item" class="w-full rounded-lg">
+            </div>
+            <div class="col-span-2 sm:col-span-3">
+                <h1 class="text-[14px] sm:text-[18px] font-extrabold mb-2 text-gray-700">{{cart.menu.name}}</h1>
+                {% if user.is_customer %}
+                <h1 class="text-[16px] sm:text-[22px] font-extrabold mb-2 text-red-600">₹ {{cart.menu.offer_price}}</h1>
+                {% else %}
+                <h1 class="text-[16px] sm:text-[22px] font-extrabold mb-2 text-red-600">₹ {{cart.menu.price}}</h1>
+                {% endif %}
+                <form action="" class="my-5">
+                    <a href="{% url 'customer:cart_remove' id=cart.id %}" class="py-2 border-2 border-red-600 text-[14px] text-white px-5 bg-red-600">REMOVE -</a>
+                    <input type="number" value="{{cart.qty}}" name="qty" class="py-2 px-3 border-2 w-full sm:w-[50%] md:w-[30%]" required>
+                    <a href="{% url 'customer:cart_update' id=cart.id %}" class="py-2 border-2 border-red-600 text-[14px] text-white px-5 bg-red-600">ADD +</a>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="py-2 rounded-xl text-right">
+            <h1 class="text-[14px] sm:text-[18px] font-extrabold mb-2 text-gray-700">Sub Total: ₹ {{total_amount}}</h1>
+            <h1 class="text-[14px] sm:text-[18px] font-extrabold mb-2 text-red-600">Total: ₹ {{total_amount}}</h1>
+        </div>
+        <div class="text-center mt-5">
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>TABLE NUMBER</p>
+                <input type="number" name="table" value="{{cart.qty}}" name="qty" class="py-2 px-3 border-2 w-full sm:w-[50%] md:w-[30%]"><br>
+                <input type="submit" value="PROCEED TO CHECKOUT" class="ptext-[14px] bg-red-600 py-2 px-3 text-white">
+            </form>
+        </div>
+    </section>
+
+    <section class="mt-10"></section>
+
+    
+    
+    {% include 'includes/customer-foot.html' %}
+
+
+    {% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base/customer-base.html" %} {% block container %} {% load static %}
+
+
+{% include 'includes/customer-nav.html' %}
+
+
+    <section class="py-10 px-5 sm:px-10">
+        <h3 class="text-[18px] font-bold mb-5 text-red-600">YOUR ORDER DETAILS:</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+            <div class="col-span-1 border-2 border-gray-200 shadow-lg p-3 rounded-xl">
+                <h3 class="font-bold text-[18px] mb-4 text-center">ORDER ID : {{order.id}}</h3>
+                <h3 class="font-bold text-[16px] mb-4">ITEMS:</h3>
+                {% for item in order.items.all %}
+                <div class="flex justify-between items-center text-red-500">
+                    <p class="font-bold text-[14px] mb-2 text-center">{{item.menu.name}}</p>
+                    <p class="font-bold text-[14px] mb-2 text-center">₹ {{item.amount}}</p>
+                </div>
+                {% endfor %}
+                <div class="text-right text-gray-700 mt-3">
+                    <p class="font-bold text-[14px] mb-4">Sub Total: ₹ {{order.subtotal}}</p>
+                    <p class="font-bold text-[18px] mb-4">Total: ₹ {{order.total}}</p>
+                </div>
+                
+            </div>
+            <div class="col-span-1 sm:col-span-2 border-2 border-gray-200 shadow-lg p-5 rounded-xl">
+                <h3 class="font-bold text-[18px] mb-2 text-center">WRITE REVIEW</h3>
+                <p class="font-bold text-[12px] text-red-500 mb-4 text-center">FOR YOUR ORDER</p>
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-5">
+                        <p class="font-bold text-[14px] text-gray-600">Title</p>
+                        <input type="text" name="title" class="border-2 border-gray-200 px-3 py-1 w-full rounded-xl outline-none" required>
+                    </div>
+                    <div class="mb-5">
+                        <p class="font-bold text-[14px] text-gray-600">Description</p>
+                        <textarea type="text" name="description" class="border-2 border-gray-200 px-3 py-1 w-full rounded-xl outline-none" required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" class="bg-red-500 py-2 px-5 rounded-full text-[12px] text-white" value="Write Now">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+{% include 'includes/customer-foot.html' %}
+
+
+{% endblock %}

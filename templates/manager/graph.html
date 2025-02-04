@@ -1,0 +1,86 @@
+{% extends "base/admin-base.html" %} {% block container %} {% load static %}
+
+
+{% include 'includes/manager-nav.html' %}
+
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body" style="background-image: url(https://images.pexels.com/photos/12775025/pexels-photo-12775025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); background-size: cover; background-repeat: no-repeat; background-position: top; " >
+
+            <div class="row page-titles mx-0 bg-transparent">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb items-start">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)" class="text-transparent">{{sub_title}}</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)" class="text-center text-white">{{name}}</a></li>
+                    </ol>
+                </div>
+            </div>
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">{{name}}</h4>
+
+                                <div id="container" style="width: 75%;">
+                                    <canvas id="population-chart" data-url="{% url 'population-chart' %}"></canvas>
+                                  </div>
+                                
+                                  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                                  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+                                  <script>
+                                
+                                    $(function () {
+                                
+                                      var $populationChart = $("#population-chart");
+                                      $.ajax({
+                                        url: $populationChart.data("url"),
+                                        success: function (data) {
+                                
+                                          var ctx = $populationChart[0].getContext("2d");
+                                
+                                          new Chart(ctx, {
+                                            type: 'bar',
+                                            data: {
+                                              labels: data.labels,
+                                              datasets: [{
+                                                label: 'Population',
+                                                backgroundColor: 'blue',
+                                                data: data.data
+                                              }]          
+                                            },
+                                            options: {
+                                              responsive: true,
+                                              legend: {
+                                                position: 'top',
+                                              },
+                                              title: {
+                                                display: true,
+                                                text: 'Population Bar Chart'
+                                              }
+                                            }
+                                          });
+                                
+                                        }
+                                      });
+                                
+                                    });
+                                
+                                  </script>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+{% endblock %}

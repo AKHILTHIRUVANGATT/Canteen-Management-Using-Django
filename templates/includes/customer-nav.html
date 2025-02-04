@@ -1,0 +1,27 @@
+{% load static %}
+
+    <header class="h-[80px] px-5 sm:px-10 flex justify-between items-center border-b-2 border-gray-200">
+        <div>
+            <h1 class="text-[32px] font-extrabold text-red-600"><a href="{% url 'customer:index' %}">Pixe Resto</a></h1>
+        </div>
+        <div class="hidden sm:block">
+            <ul class="flex justify-start items-center">
+                <li class="mr-5 text-gray-800 hover:text-red-600"><a href="{% url 'customer:index' %}" class="text-[14px] md:text-[16px] font-bold">HOME</a></li>
+                <li class="mr-5 text-gray-800 hover:text-red-600"><a href="{% url 'customer:about' %}" class="text-[14px] md:text-[16px] font-bold">ABOUT</a></li>
+                <li class="mr-5 text-gray-800 hover:text-red-600"><a href="{% url 'customer:menu' %}" class="text-[14px] md:text-[16px] font-bold">MENU</a></li>
+                <li class="mr-5 text-gray-800 hover:text-red-600"><a href="{% url 'customer:cart' %}" class="text-[14px] md:text-[16px] font-bold">CART</a></li>
+                <li class="mr-5 text-gray-800 hover:text-red-600"><a href="{% url 'customer:contact' %}" class="text-[14px] md:text-[16px] font-bold">CONTACT</a></li>
+                {% if user.is_customer %}
+                <li class="mr-5 text-gray-800 hover:text-red-600"><a href="{% url 'customer:account' %}" class="text-[14px] md:text-[16px] font-bold">ACCOUNT</a></li>
+                {% endif %}
+                <li class="mr-5 text-gray-800 hover:text-red-600"><a href="{% url 'customer:logout' %}" class="text-[14px] md:text-[16px] font-bold">LOGOUT</a></li>
+
+            </ul>
+        </div>
+        <div class="hidden sm:block">
+            <a href="{% url 'customer:orders' %}" class="bg-red-600 py-3 px-5 text-[14px] md:text-[16px] font-bold text-white hover:bg-slate-500">ORDERS</a>
+        </div>
+        <div class="block sm:hidden">
+            <img src="{% static './images/menu.png' %}" alt="menu" class="w-[30px]">
+        </div>
+    </header>

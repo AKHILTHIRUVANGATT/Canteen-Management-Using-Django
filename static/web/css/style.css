@@ -1,0 +1,38 @@
+
+body {
+	font-family: "Nunito", Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	color: var(--dark);
+	overflow-x: hidden;
+	min-width: 320px;
+	font-weight: 500;
+}
+input,textarea,select{
+	font-family: "Nunito", Arial, Helvetica, sans-serif;
+	font-weight: 500;
+}
+
+.wrapper {
+	width: 90%;
+	margin: 0 auto;
+}
+
+
+::placeholder {
+    color: #9B9B9B;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #9B9B9B;
+}
+
+::-ms-input-placeholder {
+    color: #9B9B9B;
+}
+
+#hero {
+	background: url(../images/bg-main.png) no-repeat top;
+	background-size: cover;
+}
+

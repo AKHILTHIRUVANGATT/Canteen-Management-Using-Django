@@ -1,0 +1,42 @@
+{% extends "base/customer-base.html" %} {% block container %} {% load static %}
+
+
+
+    <section class="px-5 sm:px-10 py-20 sm:py-30 flex justify-between items-start flex-wrap h-[100vh] bg-rose-100">
+        <div class="w-full sm:w-3/6 m-auto text-center">
+            <p class="text-red-600 text-[14px] ">SIGN UP NOW</p>
+            <h1 class="font-extrabold text-[32px] sm:text-[40px] mb-10">SIGN UP IN CONTINUE</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="py-2 px-5 bg-white mb-3">
+                    <input type="text" name="username" class="outline-none w-full bg-white text-gray-800" placeholder="USERNAME" required>
+                </div>
+                <div class="py-2 px-5 bg-white mb-3">
+                    <input type="text" name="name" class="outline-none w-full bg-white text-gray-800" placeholder="FULL NAME" required>
+                </div>
+                <div class="py-2 px-5 bg-white mb-3">
+                    <input type="number" name="mobile" class="outline-none w-full bg-white text-gray-800" placeholder="MOBILE NUMBER" required minlength="10">
+                </div>
+                <div class="py-2 px-5 bg-white mb-3">
+                    <input type="email" name="email" class="outline-none w-full bg-white text-gray-800" placeholder="EMAIL ID" required>
+                </div>
+                <div class="py-2 px-5 bg-white mb-3">
+                    <input type="password" name="password" class="outline-none w-full bg-white text-gray-800" placeholder="PASSWORD" minlength="8" required>
+                </div>
+                <p class="text-start text-[14px] txt-gray-700 "> Already have a account
+                    <a href="{% url 'customer:login' %}" class="text-red-500 text-[14px] font-bold ml-2">Login Now</a>
+                </p>
+                <div class="text-center mt-10">
+                    <button type="submit" class="bg-red-600 py-3 px-5 text-white text-[16px]">SIGN UP</button>
+                </div>
+            </form>
+
+            {% if error %}
+            <p class="mt-5 text-red-500 text-[18px] font-bold">{{message}}</p>
+            {% endif %}
+        </div>
+    </section>
+
+
+
+    {% endblock %}

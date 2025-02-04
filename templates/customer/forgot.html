@@ -1,0 +1,28 @@
+{% extends "base/customer-base.html" %} {% block container %} {% load static %}
+
+
+
+    <section class="px-5 sm:px-10 py-20 sm:py-30 flex justify-between items-start flex-wrap h-[100vh] bg-rose-100">
+        <div class="w-full sm:w-3/6 m-auto text-center">
+            <p class="text-red-600 text-[14px] ">RESET PASSWORD</p>
+            <h1 class="font-extrabold text-[32px] sm:text-[40px] mb-10">RESET YOUR PASSWORD</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="py-2 px-5 bg-white mb-3">
+                    <input type="email" name="email" class="outline-none w-full bg-white text-gray-800" placeholder="Email " required>
+                </div>
+                <p class="text-start text-[14px] txt-gray-700 "> Login to account
+                    <a href="{% url 'customer:login' %}" class="text-red-500 text-[14px] font-bold ml-2">Click Here</a>
+                </p>
+                <div class="text-center mt-10">
+                    <button type="submit" class="bg-red-600 py-3 px-5 text-white text-[16px]">RESET NOW</button>
+                </div>
+            </form>
+            {% if error %}
+                <p class="text-red-500 mb-5 font-semibold">{{message}}</p>
+            {% endif %}
+        </div>
+    </section>
+
+    
+    {% endblock %}

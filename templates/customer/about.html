@@ -1,0 +1,43 @@
+{% extends "base/customer-base.html" %} {% block container %} {% load static %}
+
+
+{% include 'includes/customer-nav.html' %}
+
+    <section class="h-[30vh] bg-red-600 text-center text-white">
+        <h1 class="text-[40px] sm:text-[56px] font-extrabold pt-[10vh]">ABOUT US</h1>
+        <div class="flex justify-center items-center">
+            <img src="{% static './web/images/home.png' %}" alt="icon" class="w-[16px] h-[16px] mr-3">
+            <h3 class="font-bold text[16px] mr-3">HOME</h3>
+            <img src="{% static './web/images/right-arrow.png' %}" alt="icon" class="w-[16px] h-[16px] mr-3">
+            <h3 class="font-bold text[16px] mr-3">ABOUT US</h3>
+        </div>
+    </section>
+
+    <section class="px-5 sm:px-10 py-20 sm:py-30 flex justify-between items-center flex-wrap-reverse bg-gray-100">
+        <div class="w-full sm:w-3/6 p-10">
+            <img src="{% static './web/images/biriyani.png' %}" alt="biriyani" class="shadow-md rounded-2xl">
+            
+        </div>
+        <div class="w-full sm:w-3/6">
+            <p class="text-red-600 text-[14px] ">ABOUT US</p>
+            <h1 class="font-extrabold text-[40px] mb-10">WHY CHOOSE US?</h1>
+            <p class="text-gray-600 text-[16px] mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                 Dicta ea, quis blanditiis quo facilis laborum architecto expedita laudantium fugit voluptatem modi 
+                 autem, quia minima? Tempora, dolor? Distinctio iste laudantium earum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                 Dicta ea, quis blanditiis quo facilis laborum architecto expedita laudantium fugit voluptatem modi 
+                 autem, quia minima? Tempora, dolor? Distinctio iste laudantium earum.
+            </p>
+            <p class="text-gray-600 text-[16px] mb-10">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dicta ea, quis blanditiis quo facilis laborum architecto expedita laudantium fugit voluptatem modi 
+                autem, quia minima? Tempora, dolor? Distinctio iste laudantium earum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dicta ea, quis blanditiis quo facilis laborum architecto expedita laudantium fugit voluptatem modi 
+                autem, quia minima? Tempora, dolor? Distinctio iste laudantium earum.
+           </p>
+           <a href="./about.html" class="bg-red-600 py-3 px-5 text-[14px] md:text-[16px] font-bold text-white hover:bg-slate-500">LEARN MORE</a>
+        </div>
+    </section>
+
+    {% include 'includes/customer-foot.html' %}
+
+
+    {% endblock %}

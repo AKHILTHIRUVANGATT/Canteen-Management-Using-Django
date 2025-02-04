@@ -1,0 +1,48 @@
+{% extends "base/customer-base.html" %} {% block container %} {% load static %}
+
+
+{% include 'includes/customer-nav.html' %}
+
+    <section class="h-[30vh] bg-red-600 text-center text-white">
+        <h1 class="text-[40px] sm:text-[56px] font-extrabold pt-[10vh]">MY ACCOUNT</h1>
+    </section>
+
+    <section class="px-5 sm:px-10 py-20 sm:py-30 flex justify-center items-start flex-wrap bg-gray-200">
+        
+        <div class="w-full sm:w-3/6">
+            <h1 class="font-extrabold text-[22px] mb-10 text-red-600">UPDATE ACCOUNT</h1>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p class="mb-2 font-bold text-[16px]">Username:</p>
+                <div class="py-2 px-5 bg-white w-full sm:w-[80%] mb-3">
+                    <input type="text" name="username" class="outline-none w-full bg-white text-gray-800" placeholder="Enter your username" value="{{user.username}}" disabled>
+                </div>
+                <p class="mb-2 font-bold text-[16px]">Name:</p>
+                <div class="py-2 px-5 bg-white w-full sm:w-[80%] mb-3">
+                    <input type="text" name="name" class="outline-none w-full bg-white text-gray-800" placeholder="Enter your name" value="{{user.first_name}}">
+                </div>
+                <p class="mb-2 font-bold text-[16px]">Mobile:</p>
+                <div class="py-2 px-5 bg-white w-full sm:w-[80%] mb-3">
+                    <input type="number" name="mobile" class="outline-none w-full bg-white text-gray-800" placeholder="Enter your number" value="{{user.mobile}}">
+                </div>
+                <p class="mb-2 font-bold text-[16px]">Email:</p>
+                <div class="py-2 px-5 bg-white w-full sm:w-[80%] mb-3">
+                    <input type="email" name="email" class="outline-none w-full bg-white text-gray-800" placeholder="Enter your email" value="{{user.email}}">
+                </div>
+                <p class="mb-2 font-bold text-[16px]">Password:</p>
+                <div class="py-2 px-5 bg-white w-full sm:w-[80%] mb-3">
+                    <input type="password" name="password" minlength="8" class="outline-none w-full bg-white text-gray-800" placeholder="Enter password">
+                </div>
+                <div class="text-center mt-10 w-full sm:w-[80%]">
+                    <button type="submit" class="bg-red-600 py-3 px-5 text-white text-[16px]">UPDATE PROFILE</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    
+    
+    {% include 'includes/customer-foot.html' %}
+
+
+    {% endblock %}

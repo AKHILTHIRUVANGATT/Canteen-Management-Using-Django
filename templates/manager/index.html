@@ -1,0 +1,69 @@
+{% extends "base/admin-base.html" %} {% block container %} {% load static %}
+
+
+{% include 'includes/manager-nav.html' %}
+
+
+    <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body" style="background-image: url(https://images.pexels.com/photos/12775025/pexels-photo-12775025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); background-size: cover; background-repeat: no-repeat; background-position: top; ">
+
+            <div class="container-fluid ">
+                <div class="row my-3">
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card gradient-4 pb-5 ">
+                            <div class="card-body">
+                                <h3 class="card-title text-white text-center">ORDERS</h3>
+                                <div class="d-inline-block ">
+                                    <h2 class="text-white">{{orders}}</h2>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-cutlery"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6  col-sm-6 ">
+                        <div class="card gradient-4 pb-5">
+                            <div class="card-body">
+                                <h3 class="card-title text-white text-center">TOTAL ITEMS</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">{{items}}</h2>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-shopping-cart"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-5 ">
+                    <div class=" col-lg-6 col-sm-6">
+                        <div class="card gradient-4 my-5 pb-5">
+                            <div class="card-body ">
+                                <h3 class="card-title text-white text-center">CUSTOMERS</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">{{customers}}</h2>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card gradient-4 my-5 pb-5">
+                            <div class="card-body">
+                                <h3 class="card-title text-white text-center">PAYMENTS</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white">{{payments}}</h2>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+    {% endblock %}

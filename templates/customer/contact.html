@@ -1,0 +1,58 @@
+{% extends "base/customer-base.html" %} {% block container %} {% load static %}
+
+
+{% include 'includes/customer-nav.html' %}
+
+    <section class="h-[30vh] bg-red-600 text-center text-white">
+        <h1 class="text-[40px] sm:text-[56px] font-extrabold pt-[10vh]">CONTACT US</h1>
+        <div class="flex justify-center items-center">
+            <img src="{% static './web/images/home.png' %}" alt="icon" class="w-[16px] h-[16px] mr-3">
+            <h3 class="font-bold text[16px] mr-3">HOME</h3>
+            <img src="{% static './web/images/right-arrow.png' %}" alt="icon" class="w-[16px] h-[16px] mr-3">
+            <h3 class="font-bold text[16px] mr-3">CONTACT US</h3>
+        </div>
+    </section>
+
+    <section class="px-5 sm:px-10 py-20 sm:py-30 flex justify-between items-start flex-wrap bg-gray-200">
+        <div class="w-full sm:w-3/6 mb-10 sm:mb-0">
+            <p class="text-red-600 text-[14px] ">CONNECT US</p>
+            <h1 class="font-extrabold text-[40px] mb-10">FEEL FREE TO CONNECT</h1>
+            <p class="text-gray-600 text-[16px] mb-5 w-[90%]">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dicta ea, quis blanditiis quo facilis laborum architecto expedita laudantium fugit voluptatem modi 
+                autem, quia minima? Tempora, dolor? Distinctio iste laudantium earum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dicta ea, quis blanditiis quo facilis laborum architecto expedita laudantium fugit voluptatem modi 
+                autem, quia minima? Tempora, dolor? Distinctio iste laudantium earum.
+           </p>
+           <ul class="">
+                <li class="mb-2 text-gray-800 hover:text-red-600"><a href="#" class="text-[14px] md:text-[16px] font-bold">+91 8899 643 643</a></li>
+                <li class="mb-2 text-gray-800 hover:text-red-600"><a href="#" class="text-[14px] md:text-[16px] font-bold">support@CANTEEN.com</a></li>
+            </ul>
+        </div>
+        <div class="w-full sm:w-3/6">
+            <h1 class="font-extrabold text-[22px] mb-10 text-red-600">SEND A FREE MESSAGE</h1>
+            <form action="">
+                <div class="py-2 px-5 bg-white w-full sm:w-[80%] mb-3">
+                    <input type="text" class="outline-none w-full bg-white text-gray-800" placeholder="Enter your name">
+                </div>
+                <div class="py-2 px-5 bg-white w-full sm:w-[80%] mb-3">
+                    <input type="number" class="outline-none w-full bg-white text-gray-800" placeholder="Enter your number">
+                </div>
+                <div class="py-2 px-5 bg-white w-full sm:w-[80%] mb-3">
+                    <input type="email" class="outline-none w-full bg-white text-gray-800" placeholder="Enter your email">
+                </div>
+                <div class="py-2 px-5 bg-white w-full sm:w-[80%] mb-3">
+                    <textarea name="message" class="outline-none w-full bg-white text-gray-800" placeholder="Enter your message"></textarea>
+                </div>
+                <div class="text-center mt-10 w-full sm:w-[80%]">
+                    <button type="button" class="bg-red-600 py-3 px-5 text-white text-[16px]">SEND MESSAGE</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    
+    
+    {% include 'includes/customer-foot.html' %}
+
+
+    {% endblock %}

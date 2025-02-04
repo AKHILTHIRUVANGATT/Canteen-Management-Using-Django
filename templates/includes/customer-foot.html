@@ -1,0 +1,44 @@
+{% load static %}
+
+<footer class="px-5 sm:px-10 py-20 sm:py-30 bg-gray-800">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-5 pb-10 border-b-2 border-gray-400">
+        <div class="col-span-1 sm:col-span-2">
+            <h1 class="text-[32px] font-extrabold text-red-600 mb-3"><a href="{% url 'customer:index' %}">Pixe Resto</a></h1>
+            <p class="text-gray-300 text-[14px] w-[90%]">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dicta ea, quis blanditiis quo facilis laborum architecto expedita laudantium fugit voluptatem modi 
+                autem, quia minima? Tempora, dolor? Distinctio iste laudantium earum.Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dicta ea, quis blanditiis quo facilis laborum architecto expedita laudantium fugit voluptatem modi 
+                autem, quia minima? Tempora, dolor? Distinctio iste laudantium earum.
+           </p>
+        </div>
+        <div>
+            <h3 class="text-white text-[22px] mb-5">QUICK LINKS</h3>
+            <ul class="col-span-1">
+                <li class="mb-2 text-gray-300 hover:text-red-600"><a href="{% url 'customer:index' %}" class="text-[14px] md:text-[16px] font-bold">HOME</a></li>
+                <li class="mb-2 text-gray-300 hover:text-red-600"><a href="{% url 'customer:about' %}" class="text-[14px] md:text-[16px] font-bold">ABOUT</a></li>
+                <li class="mb-2 text-gray-300 hover:text-red-600"><a href="{% url 'customer:menu' %}" class="text-[14px] md:text-[16px] font-bold">MENU</a></li>
+                <li class="mb-2 text-gray-300 hover:text-red-600"><a href="{% url 'customer:cart' %}" class="text-[14px] md:text-[16px] font-bold">CART</a></li>
+                <li class="mb-2 text-gray-300 hover:text-red-600"><a href="{% url 'customer:contact' %}" class="text-[14px] md:text-[16px] font-bold">CONTACT</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-white text-[22px] mb-5">MY ACCOUNT</h3>
+            <ul class="col-span-1">
+                <li class="mb-2 text-gray-300 hover:text-red-600"><a href="{% url 'customer:login' %}" class="text-[14px] md:text-[16px] font-bold">CUSTOMER</a></li>
+                <li class="mb-2 text-gray-300 hover:text-red-600"><a href="{% url 'manager:login' %}" class="text-[14px] md:text-[16px] font-bold">ADMIN</a></li>
+                <li class="mb-2 text-gray-300 hover:text-red-600"><a href="{% url 'kitchen:login' %}" class="text-[14px] md:text-[16px] font-bold">KITCHEN</a></li>
+                <li class="mb-2 text-gray-300 hover:text-red-600"><a href="{% url 'staff:login' %}" class="text-[14px] md:text-[16px] font-bold">STAFF</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-white text-[22px] mb-5">SUPPORT</h3>
+            <ul class="col-span-1">
+                <li class="mb-2 text-gray-300 hover:text-red-600"><a href="#" class="text-[14px] md:text-[16px] font-bold">+91 8899 643 643</a></li>
+                <li class="mb-2 text-gray-300 hover:text-red-600"><a href="#" class="text-[14px] md:text-[16px] font-bold">support@CANTEEN.com</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="mt-5 text-[14px] text-gray-400">Copyright © 2023 CANTEEN MANAGEMENT All rights reserved.</p>
+
+</footer>
